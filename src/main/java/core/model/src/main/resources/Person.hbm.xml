@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "Person" table = "Person">
+
+        <meta attribute = "class-description">
+            This class contains the person detail.
+        </meta>
+
+        <id name = "id" type = "long" column = "id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "name" column = "name" type = "string"/>
+        <property name = "address" column = "address" type = "string"/>
+        <property name = "birthday" column = "birthday" type = "date"/>
+        <property name = "gwa" column = "gwa" type = "double"/>
+        <property name = "dateHired" column = "date_hired" type = "date"/>
+        <property name = "currentlyEmployed" column = "currently_employed" type = "string"/>
+        <property name = "landlineNumber" column = "landline_number" type = "int"/>
+        <property name = "mobileNumber" column = "mobile_number" type = "int"/>
+        <property name = "email" column = "email" type = "string"/>
+
+    </class>
+</hibernate-mapping>
