@@ -1,5 +1,7 @@
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +19,9 @@ public class Person {
     private int landlineNumber;
     private int mobileNumber;
     private String email;
-    //private List roles;
+
+    @OneToMany
+    private List<Role> roles = new ArrayList<Role>();
 
     public Person(){}
 
@@ -117,11 +121,11 @@ public class Person {
         this.email = email;
     }
 
-//    public List getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRole(Role role) {
-//        this.roles.add(role);
-//    }
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 }

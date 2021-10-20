@@ -23,6 +23,7 @@
         <property name = "landlineNumber" column = "landline_number" type = "int"/>
         <property name = "mobileNumber" column = "mobile_number" type = "int"/>
         <property name = "email" column = "email" type = "string"/>
+        <property name = "roles" column = "roles" type = "string"/>
 
     </class>
 </hibernate-mapping>
