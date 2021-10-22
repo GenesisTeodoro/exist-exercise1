@@ -1,34 +1,33 @@
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Person {
 
     @Id
     private long id;
-    private String name;
-    private String address;
+    private Name name;
+    private Address address;
     private Date birthday;
     private double gwa;
     private Date dateHired;
     private String currentlyEmployed;
-    private int landlineNumber;
-    private int mobileNumber;
-    private String email;
 
     @OneToMany
-    private List<Role> roles = new ArrayList<Role>();
+    private Set<Contact> contacts;
+
+    @OneToMany
+    private Set<Role> roles;
 
     public Person(){}
 
-    public Person(long id, String name, String address,
+    public Person(long id, Name name, Address address,
                   Date birthday, double gwa, Date dateHired,
-                  String currentlyEmployed, int landlineNumber,
-                  int mobileNumber, String email){
+                  String currentlyEmployed, Set<Contact> contacts,
+                  Set<Role> roles){
         this.id = id;
         this.name = name;
         this.address = address;
@@ -36,9 +35,8 @@ public class Person {
         this.gwa = gwa;
         this.dateHired = dateHired;
         this.currentlyEmployed = currentlyEmployed;
-        this.landlineNumber = landlineNumber;
-        this.mobileNumber = mobileNumber;
-        this.email = email;
+        this.contacts = contacts;
+        this.roles = roles;
     }
 
     public long getId() {
@@ -49,19 +47,19 @@ public class Person {
         this.id = id;
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Name name) {
         this.name = name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -97,35 +95,19 @@ public class Person {
         this.currentlyEmployed = currentlyEmployed;
     }
 
-    public int getLandlineNumber() {
-        return landlineNumber;
+    public Set<Contact> getContacts() {
+        return contacts;
     }
 
-    public void setLandlineNumber(int landlineNumber) {
-        this.landlineNumber = landlineNumber;
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
     }
 
-    public int getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(int mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 }

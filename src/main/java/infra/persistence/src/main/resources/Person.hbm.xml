@@ -5,13 +5,8 @@
 
 <hibernate-mapping>
     <class name = "Person" table = "Person">
-
-        <meta attribute = "class-description">
-            This class contains the person detail.
-        </meta>
-
         <id name = "id" type = "long" column = "id">
-            <generator class="native"/>
+            <generator class="identity"/>
         </id>
 
         <property name = "name" column = "name" type = "string"/>
