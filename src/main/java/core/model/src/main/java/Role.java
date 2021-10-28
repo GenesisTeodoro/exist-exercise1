@@ -1,17 +1,19 @@
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "Roles")
 public class Role {
 
     @Id
+    @Column(name = "role_id")
     private long roleId;
+    @Column(name = "role_type")
     private String roleType;
+    @Column(name = "isActive", nullable = false)
     private boolean isActive = true;
 
-    @OneToMany
+    @ManyToMany(mappedBy="roles", fetch=FetchType.EAGER)
     private Set<Person> persons;
 
     public Role() {}

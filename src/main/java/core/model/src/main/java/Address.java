@@ -1,11 +1,22 @@
-public class Address {
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
+@Embeddable
+ublic class Address {
+
+    @Column(name="unit_no")
     private String unitNo;
+    @Column(name="street")
     private String street;
+    @Column(name="baranggay")
     private String baranggay;
+    @Column(name = "subdivision")
     private String subdivision;
+    @Column(name = "municipality")
     private String municipality;
+    @Column(name = "province")
     private String province;
+    @Column(name = "zipcode")
     private int zipcode;
 
     public Address(){}

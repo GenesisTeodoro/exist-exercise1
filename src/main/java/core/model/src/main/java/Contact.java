@@ -1,12 +1,16 @@
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="Contact")
 public class Contact {
 
     @Id
+    @Column(name="contact_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "contact_type")
     private String contactType;
+    @Column(name = "contact_info")
     private String contactInfo;
 
     public Contact(){}
