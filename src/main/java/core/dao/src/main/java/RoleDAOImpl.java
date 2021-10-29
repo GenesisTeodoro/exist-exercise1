@@ -4,16 +4,16 @@ public class RoleDAOImpl implements RoleDAO{
 
     @Override
     public List listRoles() {
-        return null;
+        return HibernateUtil.perform(new GetListCommand(1, "role_id", Role.class), List.class);
     }
 
     @Override
     public Role getRole(long roleId) {
-        return null;
+        return HibernateUtil.perform(new GetCommand(roleId, Role.class, ""), Role.class);
     }
 
     @Override
     public Boolean updateRole(Role role) {
-        return null;
+        return HibernateUtil.perform(new UpdateCommand(role), Boolean.class);
     }
 }

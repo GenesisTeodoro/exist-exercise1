@@ -4,7 +4,7 @@ public class DeleteCommand<T> implements Command {
     private T t;
     private Session session;
 
-    private DeleteCommand(T t){
+    public DeleteCommand(T t){
         this.t = t;
     }
 

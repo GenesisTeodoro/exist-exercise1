@@ -33,8 +33,8 @@ public class PersonManagerImpl implements PersonManager{
     }
 
     @Override
-    public Person getPerson(long personId) {
-        return pDAO.getPerson(personId);
+    public Person getPerson(long personId, String initCollection) {
+        return pDAO.getPerson(personId, initCollection);
     }
 
     @Override

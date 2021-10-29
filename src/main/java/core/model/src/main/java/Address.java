@@ -2,7 +2,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-ublic class Address {
+public class Address {
 
     @Column(name="unit_no")
     private String unitNo;

@@ -4,7 +4,7 @@ public interface PersonManager {
     void addPerson(Person person);
     void updatePerson(Person person);
     void deletePerson(Person person);
-    Person getPerson(long personId);
+    Person getPerson(long personId, String initCollection);
     List listPerson(int order, String column);
     List listPersonWithRoles(long roleId);
 }

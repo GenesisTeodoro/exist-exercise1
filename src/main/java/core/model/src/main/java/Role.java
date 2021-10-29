@@ -42,11 +42,11 @@ public class Role {
         this.roleType = roleType;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setIsActive(boolean active) {
         isActive = active;
     }
 
@@ -56,5 +56,22 @@ public class Role {
 
     public void setPersons(Set<Person> persons) {
         this.persons = persons;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (!this.getClass().equals(obj.getClass())) return false;
+        Role obj2 = (Role)obj;
+        if(this.roleType.equals(obj2.getRoleType()))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.roleType.hashCode();
     }
 }

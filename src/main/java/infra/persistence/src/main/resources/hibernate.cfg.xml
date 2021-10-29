@@ -24,7 +24,6 @@
         <!-- Update database on startup -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <mapping resource="core/model/src/main/resources/Person.hbm.xml"/>
 
 
     </session-factory>
