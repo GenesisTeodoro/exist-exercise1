@@ -3,6 +3,9 @@ package gjut.exist.dao;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class GetListCommand<T> implements Command {
@@ -17,6 +20,14 @@ public class GetListCommand<T> implements Command {
         this.entityClass = entityClass;
     }
 
+    public Class<T> getEntityClass(){
+        return entityClass;
+    }
+
+    public String getColumn(){
+        return column;
+    }
+
     @Override
     public void setSession(Session session) {
         this.session = session;
@@ -25,10 +36,23 @@ public class GetListCommand<T> implements Command {
     @Override
     public Object execute() {
         List list = null;
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery criteria = builder.createQuery(getEntityClass());
+        Root root = criteria.from(getEntityClass());
+        criteria.select(root);
+
+
         if(order == 1){
-            list = session.createCriteria(entityClass).addOrder(Order.asc(column)).list();
+            list = criteria.orderBy(builder.asc(root.get(column))).getOrderList();
+
+            //deprecated
+            //list = session.createCriteria(entityClass).addOrder(Order.asc(column)).list();
         } else {
-            list = session.createCriteria(entityClass).addOrder(Order.desc(column)).list();
+
+            list = criteria.orderBy(builder.desc(root.get(column))).getOrderList();
+
+            //deprecated
+            //list = session.createCriteria(entityClass).addOrder(Order.desc(column)).list();
         }
         return list;
     }
