@@ -1,0 +1,12 @@
+gjut\exist\dao\HibernateUtil.class
+gjut\exist\dao\PersonDAOImpl.class
+gjut\exist\dao\PersonDAO.class
+gjut\exist\dao\UpdateCommand.class
+gjut\exist\dao\RoleDAO.class
+gjut\exist\dao\DeleteCommand.class
+gjut\exist\dao\AddCommand.class
+gjut\exist\dao\CustomQueryCommand.class
+gjut\exist\dao\GetCommand.class
+gjut\exist\dao\Command.class
+gjut\exist\dao\GetListCommand.class
+gjut\exist\dao\RoleDAOImpl.class

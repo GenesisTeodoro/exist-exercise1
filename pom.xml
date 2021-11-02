@@ -4,40 +4,88 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.exist</groupId>
+    <groupId>gjut.exist</groupId>
     <artifactId>exist-exercise1</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <name>exist-exercise1</name>
+
     <modules>
-        <module>src/main/java/app</module>
-        <module>src/main/java/core</module>
-        <module>src/main/java/infra</module>
-        <module>src/main/java/utilities</module>
-        <module>src/main/java/infra/persistence</module>
-        <module>src/main/java/infra/buildtools</module>
+        <module>app</module>
+        <module>core</module>
+        <module>infra</module>
+        <module>utilities</module>
     </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <postgresql.version>42.2.24</postgresql.version>
+        <hibernate.version>5.6.0.Final</hibernate.version>
+        <persistence.version>1.0.2.Final</persistence.version>
+        <commons.validator.version>1.7</commons.validator.version>
     </properties>
 
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.2.24</version>
-        </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.6.0.Final</version>
-        </dependency>
+            <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.1-api</artifactId>
+                <version>${persistence.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-validator</groupId>
+                <artifactId>commons-validator</artifactId>
+                <version>${commons.validator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>gjut.exist.dao</groupId>
+                <artifactId>Dao</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>gjut.exist.service</groupId>
+                <artifactId>Service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>gjut.exist.model</groupId>
+                <artifactId>Model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>gjut.exist.infra</groupId>
+                <artifactId>buildtools</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>gjut.exist.infra</groupId>
+                <artifactId>persistence</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
 
-    </dependencies>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
