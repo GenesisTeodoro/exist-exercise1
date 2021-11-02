@@ -36,20 +36,20 @@ public class GetListCommand<T> implements Command {
     @Override
     public Object execute() {
         List list = null;
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery criteria = builder.createQuery(getEntityClass());
-        Root root = criteria.from(getEntityClass());
-        criteria.select(root);
+//        CriteriaBuilder builder = session.getCriteriaBuilder();
+//        CriteriaQuery criteria = builder.createQuery(Class);
+//        Root root = criteria.from(Class);
+//        criteria.select(root);
 
 
         if(order == 1){
-            list = criteria.orderBy(builder.asc(root.get(column))).getOrderList();
+            //list = criteria.orderBy(builder.asc(root.get(column))).getOrderList();
 
             //deprecated
             //list = session.createCriteria(entityClass).addOrder(Order.asc(column)).list();
         } else {
 
-            list = criteria.orderBy(builder.desc(root.get(column))).getOrderList();
+            //list = criteria.orderBy(builder.desc(root.get(column))).getOrderList();
 
             //deprecated
             //list = session.createCriteria(entityClass).addOrder(Order.desc(column)).list();
