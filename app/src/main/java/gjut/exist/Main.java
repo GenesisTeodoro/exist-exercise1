@@ -28,7 +28,7 @@ public class Main{
             option = v.validIntOption(optionDisplay, 1, 5);
             switch(option){
                 case 1:
-                    optionDisplay = YELLOW + "\n=======================PERSON MANAGEMENT=======================\n"
+                    optionDisplay = YELLOW + "\n=======================EMPLOYEE MANAGEMENT=======================\n"
                             + GREEN + "[1] Add Person\n"
                             + "[2] Update Person Information\n"
                             + "[3] Delete Person\n"

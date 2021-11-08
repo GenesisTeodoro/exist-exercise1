@@ -14,6 +14,8 @@ public class Contact {
     private String contactType;
     @Column(name = "contact_info")
     private String contactInfo;
+    @Column(name = "contact_order")
+    private int contactOrder;
 
     public Contact(){}
 
@@ -45,5 +47,13 @@ public class Contact {
 
     public void setContactInfo(String contactInfo) {
         this.contactInfo = contactInfo;
+    }
+
+    public int getContactOrder() {
+        return contactOrder;
+    }
+
+    public void setContactOrder(int contactOrder) {
+        this.contactOrder = contactOrder;
     }
 }

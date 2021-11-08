@@ -12,7 +12,7 @@ public class Role {
     private long roleId;
     @Column(name = "role_type")
     private String roleType;
-    @Column(name = "isActive", nullable = false)
+    @Column(name = "is_active", nullable = false)
     private boolean isActive = true;
 
     @ManyToMany(mappedBy="roles", fetch=FetchType.EAGER)

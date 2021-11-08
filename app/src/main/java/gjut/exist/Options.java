@@ -34,6 +34,7 @@ public class Options{
         person.setName(name);
 
         person.setBirthday(v.validBirthday());
+        person.setEmployeeReference(v.validString("Employee Reference: "));
 
         address.setUnitNo(v.validString("Unit No: "));
         address.setStreet(v.validString("Street: "));
@@ -46,7 +47,7 @@ public class Options{
 
         person.setDateHired(v.validDateHired());
         person.setGwa(v.validGwa());
-        person.setCurrentlyEmployed(v.validString("Currently Employed: "));
+        //person.setCurrentlyEmployed(v.validString("Currently Employed: "));
         return person;
     }
 
@@ -71,6 +72,8 @@ public class Options{
                 contact.setContactType("Email");
                 contact.setContactInfo(v.validContact("Email"));
             }
+
+            contact.setContactOrder(v.validIntInput("Enter Contact Order: "));
 
             if(set.isEmpty()){
                 set.add(contact);
@@ -201,7 +204,7 @@ public class Options{
     public void addPerson(){
         Person person = getPersonInfo(new Person());
         person.setContacts(newContact(new HashSet<Contact>()));
-        person.setRoles(newRole(new HashSet<Role>()));
+        //person.setRoles(newRole(new HashSet<Role>()));
         pm.addPerson(person);
     }
 

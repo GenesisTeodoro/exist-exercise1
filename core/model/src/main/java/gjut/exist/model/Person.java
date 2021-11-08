@@ -24,7 +24,10 @@ public class Person {
     @Column(name="date_hired")
     private Date dateHired;
     @Column(name="currently_employed")
-    private String currentlyEmployed;
+    private boolean currentlyEmployed;
+
+    @Column(name="employee_reference")
+    private String employeeReference;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name="person_id")
@@ -34,23 +37,6 @@ public class Person {
     @JoinTable(name="person_role", joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-
-    public Person(){}
-
-    public Person(long id, Name name, Address address,
-                  Date birthday, double gwa, Date dateHired,
-                  String currentlyEmployed, Set<Contact> contacts,
-                  Set<Role> roles){
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.birthday = birthday;
-        this.gwa = gwa;
-        this.dateHired = dateHired;
-        this.currentlyEmployed = currentlyEmployed;
-        this.contacts = contacts;
-        this.roles = roles;
-    }
 
     public long getId() {
         return id;
@@ -100,11 +86,11 @@ public class Person {
         this.dateHired = dateHired;
     }
 
-    public String getCurrentlyEmployed() {
+    public boolean getCurrentlyEmployed() {
         return currentlyEmployed;
     }
 
-    public void setCurrentlyEmployed(String currentlyEmployed) {
+    public void setCurrentlyEmployed(boolean currentlyEmployed) {
         this.currentlyEmployed = currentlyEmployed;
     }
 
@@ -122,5 +108,13 @@ public class Person {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getEmployeeReference() {
+        return employeeReference;
+    }
+
+    public void setEmployeeReference(String employeeReference) {
+        this.employeeReference = employeeReference;
     }
 }

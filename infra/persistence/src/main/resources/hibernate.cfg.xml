@@ -24,6 +24,10 @@
         <!-- Update database on startup -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
+        <mapping class="gjut.exist.model.Person" />
+        <mapping class="gjut.exist.model.Role" />
+        <mapping class="gjut.exist.model.Contact" />
+
 
     </session-factory>
 </hibernate-configuration>
